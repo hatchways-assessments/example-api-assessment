@@ -1,0 +1,12 @@
+version: "3"
+services:
+  server:
+    image: node:16
+    environment:
+      - SESSION_SECRET=notsecure
+    volumes:
+      - ./:/app
+    working_dir: /app
+    command: ["sh", "-c", "yarn && yarn seed && yarn dev"]
+    ports:
+      - "8080:8080"
